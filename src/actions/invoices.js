@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 
-export const addInvoice = ({ description, note, amount, createdAt } = {}) => ({
+export const addInvoice = ({ description = '', note = '', amount = 0, createdAt = 0 } = {}) => ({
   type: 'ADD_INVOICE',
   invoice: {
     id: uuid(),
@@ -19,8 +19,6 @@ export const addInvoice = ({ description, note, amount, createdAt } = {}) => ({
 
 
 export const editInvoice = (id, updates) => {
-  console.log(id);
-  console.log(updates);
   return {
     type: 'EDIT_INVOICE',
     id,
