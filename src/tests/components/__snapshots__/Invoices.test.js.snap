@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should display a message when there are not invoices 1`] = `
+<div>
+  <h1>
+    Invoices 
+  </h1>
+  <p>
+    No Invoices found
+  </p>
+</div>
+`;
+
+exports[`should render list of invoices with the given data 1`] = `
+<div>
+  <h1>
+    Invoices 
+  </h1>
+  <Invoice
+    amount={4250}
+    createdAt={0}
+    description="desc1"
+    id="1"
+    key="1"
+    note="note1"
+  />
+  <Invoice
+    amount={2503}
+    createdAt={-345600000}
+    description="desc2"
+    id="2"
+    key="2"
+    note="note2"
+  />
+  <Invoice
+    amount={2500}
+    createdAt={345600000}
+    description="desc3"
+    id="3"
+    key="3"
+    note="note3"
+  />
+</div>
+`;

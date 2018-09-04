@@ -7,16 +7,28 @@ import { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate } fro
 
 class InvoiceFilters extends Component {
   state = {
-    calendarFocused: null  
+    calendarFocused: null
   }
 
-  onDatesChange = ({ startDate, endDate }) =>{
-    this.props.dispatch(setStartDate(startDate));
-    this.props.dispatch(setEndDate(endDate));
+  onDatesChange = ({ startDate, endDate }) => {
+    this.props.setStartDate(startDate);
+    this.props.setEndDate(endDate);
   }
 
   onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }));
+  }
+
+  onTextChange = (e) => {
+    this.props.setTextFilter(e.target.value);
+  }
+
+  onSortChange = (e) => {
+    if (e.target.value === 'date') {
+      this.props.sortByDate(e.target.value)
+    } else if (e.target.value === 'amount') {
+      this.props.sortByAmount(e.target.value)
+    }
   }
 
   render() {
@@ -25,20 +37,11 @@ class InvoiceFilters extends Component {
         <input
           type="text"
           value={this.props.filters.text}
-          onChange={(e) => {
-            this.props.dispatch(setTextFilter(e.target.value))
-          }}
+          onChange={this.onTextChange}
         />
         <select
           value={this.props.filters.sortBy}
-          onChange={(e) => {
-            if (e.target.value === 'date') {
-              this.props.dispatch(sortByDate(e.target.value))
-            } else if (e.target.value === 'amount') {
-              this.props.dispatch(sortByAmount(e.target.value))
-
-            }
-          }}>
+          onChange={this.onSortChange}>
           <option value="date">Date</option>
           <option value="amount">Amount</option>
         </select>
@@ -48,7 +51,7 @@ class InvoiceFilters extends Component {
           onDatesChange={this.onDatesChange}
           focusedInput={this.state.calendarFocused}
           onFocusChange={this.onFocusChange}
-          numberOfMonths= {1}
+          numberOfMonths={1}
           isOutsideRange={() => false}
           showClearDates={true}
         />
@@ -63,5 +66,13 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  setTextFilter: (text) => dispatch(setTextFilter(text)),
+  sortByAmount: () => dispatch(sortByAmount()),
+  sortByDate: () => dispatch(sortByDate()),
+  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
+  setEndDate: (endDate) => dispatch(setEndDate(endDate))
 
-export default connect(mapStateToProps)(InvoiceFilters);
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(InvoiceFilters);

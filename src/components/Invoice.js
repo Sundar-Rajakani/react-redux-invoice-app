@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Invoice = ({ description, amount, createdAt, id, dispatch }) => (
+export const Invoice = ({ description, amount, createdAt, id, dispatch }) => (
   <div>
     <Link to={`/edit/${id}`}>
       <h3>{description}</h3>
