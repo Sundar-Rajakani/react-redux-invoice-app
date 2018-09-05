@@ -25,6 +25,6 @@ export class AddInvoice extends Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-  addInvoice: (invoice) => dispatch.addInvoice(invoice)
+  addInvoice: (invoice) => dispatch(addInvoice(invoice))
 })
 export default connect(undefined, mapDispatchToProps)(AddInvoice);

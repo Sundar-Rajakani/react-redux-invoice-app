@@ -17,7 +17,7 @@ exports[`should render list of invoices with the given data 1`] = `
     Invoices 
   </h1>
   <Invoice
-    amount={4250}
+    amount={0}
     createdAt={0}
     description="desc1"
     id="1"
@@ -25,7 +25,7 @@ exports[`should render list of invoices with the given data 1`] = `
     note="note1"
   />
   <Invoice
-    amount={2503}
+    amount={1}
     createdAt={-345600000}
     description="desc2"
     id="2"
@@ -33,7 +33,7 @@ exports[`should render list of invoices with the given data 1`] = `
     note="note2"
   />
   <Invoice
-    amount={2500}
+    amount={2}
     createdAt={345600000}
     description="desc3"
     id="3"

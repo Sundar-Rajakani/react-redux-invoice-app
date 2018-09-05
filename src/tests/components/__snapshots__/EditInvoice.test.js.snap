@@ -8,7 +8,7 @@ exports[`should render edit invoice 1`] = `
   <InvoiceForm
     invoice={
       Object {
-        "amount": 2503,
+        "amount": 1,
         "createdAt": -345600000,
         "description": "desc2",
         "id": "2",

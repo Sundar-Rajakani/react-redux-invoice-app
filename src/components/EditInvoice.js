@@ -7,10 +7,6 @@ import InvoiceForm from './InvoiceForm';
 
 
 export class EditInvoice extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   onSubmit = (invoice) => {
     this.props.editInvoice(props.invoice.id, invoice);
     this.props.history.push('/');

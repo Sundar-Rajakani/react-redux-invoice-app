@@ -231,7 +231,7 @@ exports[`should render invoice form with the provided data 1`] = `
       onChange={[Function]}
       placeholder="Amount"
       type="number"
-      value="25.03"
+      value="0.01"
     />
     <SingleDatePicker
       anchorDirection="left"
